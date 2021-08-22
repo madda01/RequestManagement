@@ -19,15 +19,15 @@ public class ViewFeedbackServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	try {
-		IFeedback iFeedbackService= new FeedbackServiceImpl();
-		//get the payment details to display it 
-		List<Feedback> feedbackdetails= iFeedbackService.getFeedback();
-		request.setAttribute("feedbackdetails",feedbackdetails);
-	
-	}catch (Exception e) {
-		e.printStackTrace();
-	}
+		try {
+			IFeedback iFeedbackService= new FeedbackServiceImpl();
+			//get the payment details to display it 
+			List<Feedback> feedbackdetails= iFeedbackService.getFeedback();
+			request.setAttribute("feedbackdetails",feedbackdetails);
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		//redirecting from the servlet to
 		RequestDispatcher dis= request.getRequestDispatcher("../RequestManage/requestHome.jsp");
 		dis.forward(request, response);

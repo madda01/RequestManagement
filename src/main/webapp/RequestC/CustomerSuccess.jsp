@@ -7,7 +7,8 @@
 <title>Insert title here</title>
  <jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-	<style>
+<link rel="stylesheet" href="../css/submissions.css">
+<style>
 .contt{
 	background-color:#f0f5f5;
 		width: 700px;
@@ -28,7 +29,7 @@
  <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
 <br>
 	<div class ="contt">
-	<form action="../backtoform" method="post" align="center">
+	<form action="backtoform" method="post" align="center">
 		<h4>Process is successful.</h4>
 		<p>We will examine your matter.<br>Thank you for your feedback</p>
 		<input type="submit" name="backbtn" value="Go back to Feedback Insert-Form">

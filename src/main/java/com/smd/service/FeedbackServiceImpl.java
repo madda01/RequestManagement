@@ -1,7 +1,9 @@
 package com.smd.service;
 
+import java.util.List;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -21,14 +23,14 @@ public class FeedbackServiceImpl implements IFeedback {
 		
 	@Override
 	//1.method to get all the feedback details saved in the database
-	public ArrayList<Feedback> getFeedback() {
+	public List<Feedback> getFeedback() throws SQLException {
 		//to get all the feedback details saved in a tuple
-		ArrayList<Feedback> feedback= new ArrayList<Feedback>();
 		
-		try{
-			String sql="select * from feedback";
 			state=con.createStatement();//executing a query
+			String sql="select * from feedback";
 			ResultSet result= state.executeQuery(sql);
+			
+			ArrayList<Feedback> feedback1= new ArrayList<Feedback>();
 			
 			//assigned details retrieved from the database to variables
 			while(result.next()) {
@@ -41,13 +43,11 @@ public class FeedbackServiceImpl implements IFeedback {
 				String Status=result.getString(7);
 				
 				Feedback f1 = new Feedback(Feedback_ID,Cus_ID,Date, Type,Message, Rating, Status);
-				feedback.add(f1);
+				feedback1.add(f1);
 			}
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+		
 		//return the feedback array object
-		return feedback;
+		return feedback1;
 	}
 
 	@Override

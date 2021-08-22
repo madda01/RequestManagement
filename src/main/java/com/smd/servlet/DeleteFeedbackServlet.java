@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,16 +24,39 @@ public class DeleteFeedbackServlet extends HttpServlet {
 		boolean issuccess=iFeedbackService.removeFeedback(feedbackid);
 		
 		//if the data was passed to the database successfully 
-				if(issuccess==true) 
-				{	//redirecting from the servlet to
-					RequestDispatcher dis1= request.getRequestDispatcher("success.jsp");
-					dis1.forward(request, response);
-				}
-				//if the data wasn't passed to the database successfully 
-				else 
-				{	//redirecting from the servlet to
-					RequestDispatcher dis2= request.getRequestDispatcher("unsuccess.jsp");
-					dis2.forward(request, response);
+				try{
+					if(issuccess==true) 
+				
+					{	
+						PrintWriter out = response.getWriter();
+						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+						out.println("<script>");
+						out.println("$(document).ready(function(){");
+						out.println("swal ( 'Deleted Successfully' ,  '' ,  'success' );");
+						out.println("});");
+						out.println("</script>"); 
+						//redirecting from the servlet to
+						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+						dis1.forward(request, response);
+					}
+					//if the data wasn't passed to the database successfully 
+					else 
+					{	
+						PrintWriter out = response.getWriter();
+						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+						out.println("<script>");
+						out.println("$(document).ready(function(){");
+						out.println("swal ( 'Unsuccessfully' ,  '' ,  'unsuccess' );");
+						out.println("});");
+						out.println("</script>"); 
+						//redirecting from the servlet to
+						RequestDispatcher dis2= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+						dis2.forward(request, response);
+					}
+				}catch (Exception e) {
+					e.printStackTrace();
 				}
 	}
 

@@ -6,7 +6,56 @@
 	<title>Customer Services</title>
     <jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-    <link rel="stylesheet" href="../css/requeststyle.css">
+    <!-- <link rel="stylesheet" href="../css/rating.css"> -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <style>
+form{
+	background-color:#ffffff;
+	width: 40%;
+	border: 7px black;
+	margin: 20px;
+	font: 13px "";
+	padding: 20px 12px 10px 20px;
+	outline-color: black;
+	outline-style: groove;
+	float:center;
+	opacity:0.8;
+}
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+</style>
 </head>
 <body>
     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
@@ -32,18 +81,19 @@
                     <textarea id="Message" name="Message" style="height: 180px; width: 500px;" required></textarea><br><br><br>
 
 				<h6>How Did You Like Us?</h6>
-                <div class="rate">
-                    <input type="radio" id="star5" name="rate" value="5" />
-                    <label for="star5" title="text"></label>
-                    <input type="radio" id="star4" name="rate" value="4" />
-                    <label for="star4" title="text"></label>
-                    <input type="radio" id="star3" name="rate" value="3" />
-                    <label for="star3" title="text"></label>
-                    <input type="radio" id="star2" name="rate" value="2" />
-                    <label for="star2" title="text"></label>
-                    <input type="radio" id="star1" name="rate" value="1" />
-                    <label for="star1" title="text"></label>
-                </div><br><br><br>
+                <div class="stars">
+				    <input class="star star-5" id="star-5" type="radio" name="Rating"/>
+				    <label class="star star-5" for="star-5"></label>
+				    <input class="star star-4" id="star-4" type="radio" name="Rating"/>
+				    <label class="star star-4" for="star-4"></label>
+				    <input class="star star-3" id="star-3" type="radio" name="Rating"/>
+				    <label class="star star-3" for="star-3"></label>
+				    <input class="star star-2" id="star-2" type="radio" name="Rating"/>
+				    <label class="star star-2" for="star-2"></label>
+				    <input class="star star-1" id="star-1" type="radio" name="Rating"/>
+				    <label class="star star-1" for="star-1"></label>
+				</div>
+                <br><br><br>
 
                 <input type="submit" value="Submit Your Feedback"></button>
                     

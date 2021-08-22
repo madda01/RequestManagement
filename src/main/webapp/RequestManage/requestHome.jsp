@@ -9,8 +9,10 @@
 	<title>Admin Home Page</title>
 </head>
 <body>
-	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
-	<br><br>
+	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
+	
+	<h5 align="center" class="capitalize" >Request Management</h5>
+	 <hr>
 	<center>
 		<!--table to display data -->
 		<table border="1">
