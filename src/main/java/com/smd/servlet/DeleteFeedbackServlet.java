@@ -17,6 +17,7 @@ import com.smd.service.IFeedback;
 public class DeleteFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String feedbackid= request.getParameter("Feedback_ID");
 		
@@ -37,7 +38,7 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						//redirecting from the servlet to
-						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/deleteFeedback.jsp");
 						dis1.forward(request, response);
 					}
 					//if the data wasn't passed to the database successfully 

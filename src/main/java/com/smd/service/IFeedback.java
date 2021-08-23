@@ -9,6 +9,8 @@ import com.smd.model.Feedback;
 public interface IFeedback {
 		//get all feedbacks
 		public List<Feedback> getFeedback() throws SQLException;
+		
+		//public Feedback selectFeedback(String Feedback_ID);
 			
 		//add feedback for feedback table
 		boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,

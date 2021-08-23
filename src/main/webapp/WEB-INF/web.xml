@@ -53,38 +53,5 @@
 			<servlet-name>DeleteFeedback</servlet-name>
 			<url-pattern>/delete</url-pattern> <!-- action to the delete form -->
 		</servlet-mapping>
-		
-		 <!-- go back to homepage 
-		 <servlet>
-			<servlet-name>Success</servlet-name>
-			<servlet-class>com.smd.servlet.AfterInsertServlet</servlet-class> match the servlet
-		</servlet>
-		
-		<servlet-mapping> path to the servlet
-		 	<servlet-name>Success</servlet-name>
-		 	<url-pattern>/backtoform</url-pattern> action to the success form
-		 </servlet-mapping>
-		 
-		 go back to feedback form
-		 <servlet>
-			<servlet-name>unsuccess</servlet-name>
-			<servlet-class>com.smd.servlet.InsertErrorServlet</servlet-class> match the servlet
-		</servlet>
-		
-		<servlet-mapping> path to the servlet
-		 	<servlet-name>unsuccess</servlet-name>
-		 	<url-pattern>/backtoinsert</url-pattern> action to the back to insert error form
-		 </servlet-mapping> -->
-		 
-		 <!--  go back to admin page
-		 <servlet>
-			<servlet-name>admin</servlet-name>
-			<servlet-class>com.smd.servlet.AfterAdminOperationsServlet</servlet-class> match the servlet
-		</servlet>
-		
-		<servlet-mapping> path to the servlet
-		 	<servlet-name>admin</servlet-name>
-		 	<url-pattern>/backtoadminhome</url-pattern> action to the admin view form
-		 </servlet-mapping> -->
      
 </web-app>

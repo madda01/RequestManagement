@@ -44,6 +44,7 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("swal ( 'Added Successfully' ,  '' ,  'success' );");
 						out.println("});");
 						out.println("</script>"); 
+						
 						RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
 						dispatcher.forward(request, response);//redirecting from the servlet to
 					}else {//if the data wasn't passed to the database successfully 

@@ -19,11 +19,14 @@ body {
 }
 .formcontent{
 	margin: 0 auto; 
-	width:700px;
+	width:800px;
 	text-align: left;
+	background-color:#f0f5f5;
+	opacity:0.8;
+	padding: 20px 12px 10px 20px;
 }
 form{
-		background-color:#f0f5f5;
+		
 		width: 700px;
 		border: 15px black;
 		margin: 20px;
@@ -32,7 +35,7 @@ form{
 		outline-style: double;
 		outline-color: black;
 		float:center;
-		opacity:0.8;
+		
 	}
 .idper{
 box-sizing: border-box;
@@ -41,7 +44,15 @@ box-sizing: border-box;
   background-color:#75a3a3;
   color: white;
 }
-	
+body {
+  background-image: url('../img/service6.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height:100vh;
+  position:relative;
+		
+}	
 </style>
 </head>
 <body>
@@ -57,9 +68,10 @@ box-sizing: border-box;
 			String Status = request.getParameter("Status");
 		%>
 		<br>
-		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
+		
 		
 		<div class="formcontent">
+		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
 			<form action="../update" method="post">
 				Feedback ID: 
 				<input type="text" name="Feedback_ID" style="width:20%" value="<%= Feedback_ID %>" readonly><br><br>

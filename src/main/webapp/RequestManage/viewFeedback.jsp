@@ -23,6 +23,15 @@
 		text-align: center;
 	
 }
+body {
+  background-image: url('../img/service4.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height:100vh;
+  position:relative;
+		
+}
 </style>
 </head>
 <body>

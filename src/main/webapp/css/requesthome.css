@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 3px;
+} 
+body {
+  background-image: url('../img/service2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+		
+}
+table { background-color:#C0C0C0;
+font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 55%;
+    border: 1px;
+    margin-left: 10px;
+    opacity:0.9;
+ }
