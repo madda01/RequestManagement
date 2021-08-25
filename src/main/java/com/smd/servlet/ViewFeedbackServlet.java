@@ -18,7 +18,6 @@ import com.smd.service.IFeedback;
 public class ViewFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		try {
@@ -26,18 +25,17 @@ public class ViewFeedbackServlet extends HttpServlet {
 			//get the payment details to display it 
 			List<Feedback> feedbackdetails= iFeedbackService.getFeedback();
 			request.setAttribute("feedbackdetails",feedbackdetails);
-			
-			//redirecting from the servlet to
-			RequestDispatcher dispatcher= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
-			if(dispatcher!=null)
-				dispatcher.forward(request, response);
-			else
-				System.out.println("error");
 
 		
 		}catch (NullPointerException | SQLException e) {
 			e.printStackTrace();
 		}
-				}
+		//redirecting from the servlet to
+		RequestDispatcher dispatcher= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+		if(dispatcher!=null)
+			dispatcher.forward(request, response);
+		else
+			System.out.println("error");
+	}
 
 }

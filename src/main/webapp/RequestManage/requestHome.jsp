@@ -1,42 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<meta charset="ISO-8859-1">
-	 <link rel="stylesheet" href="css/requesthome.css">
+	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 	<title>Admin Home Page</title>
-<!-- <style>
-td, th {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 3px;
-} 
-body {
-  background-image: url('../img/s2.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-		
-}
-table { background-color:#C0C0C0;
-font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 55%;
-    border: 1px;
-    margin-left: 10px;
-    opacity:0.9;
- }
-</style> -->
 </head>
-<body>
+<body class="hbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
 	
 	<h5 align="center" class="capitalize" >Request Management</h5>
-	 <hr>
-	  
 			<!--table to display data -->
 			<table class="feedback">
 				<tr>
@@ -55,27 +32,27 @@ font-family: arial, sans-serif;
 					<c:forEach var="feedback" items="${feedbackdetails}">
 					
 					<!-- assign values for the variables -->
-					<c:set var="Feedback_ID" value="${feedback.Feedback_ID}"> </c:set> <!-- feedbackid is unique auto-incremented -->
-					<c:set var="Cus_ID" value="${feedback.Cus_ID}"> </c:set> <!-- customerid is unique auto-incremented -->
-					<c:set var="Date" value="${feedback.Date}"> </c:set>
-					<c:set var="Type" value="${feedback.Type}"> </c:set>
-					<c:set var="Message" value="${feedback.Message}"> </c:set>
-					<c:set var="Rating" value="${feedback.Rating}"> </c:set>
-					<c:set var="Status" value="${feedback.Status}"> </c:set>
+					<c:set var="Feedback_ID" value="${feedback.feedback_ID}"> </c:set> <!-- feedbackid is unique auto-incremented -->
+					<c:set var="Cus_ID" value="${feedback.cus_ID}"> </c:set> <!-- customerid is unique auto-incremented -->
+					<c:set var="Date" value="${feedback.date}"> </c:set>
+					<c:set var="Type" value="${feedback.type}"> </c:set>
+					<c:set var="Message" value="${feedback.message}"> </c:set>
+					<c:set var="Rating" value="${feedback.rating}"> </c:set>
+					<c:set var="Status" value="${feedback.status}"> </c:set>
 						
 						<tr>
 						<!-- print details inside the table -->
-							<td>${feedback.Feedback_ID}</td> <!-- feedbackid is unique auto-incremented -->
-							<td>${feedback.Cus_ID}</td> <!-- customerid is unique auto-incremented -->
-							<td>${feedback.Date}</td>
-							<td>${feedback.Type}</td>
-							<td>${feedback.Message}</td>
-							<td>${feedback.Rating}</td>
-							<td>${feedback.Status}</td>
+							<td>${feedback.feedback_ID}</td> <!-- feedbackid is unique auto-incremented -->
+							<td>${feedback.cus_ID}</td> <!-- customerid is unique auto-incremented -->
+							<td>${feedback.date}</td>
+							<td>${feedback.type}</td>
+							<td>${feedback.message}</td>
+							<td>${feedback.rating}</td>
+							<td>${feedback.status}</td>
 							
 							<td>
 								<!-- set the page that need to be navigated when updating as the value -->
-								<c:url value="updateFeedback.jsp" var="feedbackupdate">
+								<c:url value="RequestManage/updateFeedback.jsp" var="feedbackupdate">
 				
 									<!-- data to take to the navigated page -->
 									<c:param name="Feedback_ID" value="${Feedback_ID}"></c:param> <!-- feedbackid is unique auto-incremented -->
@@ -95,7 +72,7 @@ font-family: arial, sans-serif;
 								
 							<td>
 								<!-- set the page that need to be navigated when deleting as the value -->
-								<c:url value="deleteFeedback.jsp" var="feedbackdelete">
+								<c:url value="RequestManage/deleteFeedback.jsp" var="feedbackdelete">
 									
 									<!-- data to take to the navigated page -->
 									<c:param name="Feedback_ID" value="${Feedback_ID}"></c:param> <!-- feedbackid is unique auto-incremented -->

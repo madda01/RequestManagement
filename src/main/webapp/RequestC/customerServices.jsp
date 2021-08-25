@@ -6,65 +6,14 @@
 	<title>Customer Services</title>
     <jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-    <!-- <link rel="stylesheet" href="../css/rating.css"> -->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/requestcustomer.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <style>
-form{
-	background-color:#ffffff;
-	width: 40%;
-	border: 7px black;
-	margin: 20px;
-	font: 13px "";
-	padding: 20px 12px 10px 20px;
-	outline-color: black;
-	outline-style: groove;
-	float:center;
-	opacity:0.8;
-}
-div.stars {
-  width: 270px;
-  display: inline-block;
-}
-
-input.star { display: none; }
-
-label.star {
-  float: right;
-  padding: 10px;
-  font-size: 36px;
-  color: #444;
-  transition: all .2s;
-}
-
-input.star:checked ~ label.star:before {
-  content: '\f005';
-  color: #FD4;
-  transition: all .25s;
-}
-
-input.star-5:checked ~ label.star:before {
-  color: #FE7;
-  text-shadow: 0 0 20px #952;
-}
-
-input.star-1:checked ~ label.star:before { color: #F62; }
-
-label.star:hover { transform: rotate(-15deg) scale(1.3); }
-
-label.star:before {
-  content: '\f006';
-  font-family: FontAwesome;
-}
-body {
-  background-image: url('../img/service3.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  min-height:100vh;
-  position:relative;
-		
-}
-</style>
+	<script>
+	function validsubmit(){
+		alert("Thank you for your feedback!");
+		return true;
+	}
+	</script>
 </head>
 <body>
     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
@@ -72,7 +21,7 @@ body {
     <div class="mydiv">
     
             <center>
-			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;">
+			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;" onsubmit="return validsubmit()">
                 <h2 style="text-align: center;">Send Us A Feedback</h2><br>
                 <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts. <br>
                          Get connected with us!</h6><br><br>
@@ -104,7 +53,7 @@ body {
 				</div>
                 <br><br><br>
 
-                <input type="submit" value="Submit Your Feedback"></button>
+                <center></center><input type="submit" value="Submit Your Feedback"></button></center>
                     
             </form> <br>
         </center>

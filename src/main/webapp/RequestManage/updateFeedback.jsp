@@ -7,55 +7,9 @@
 	<title>Update Feedback</title>
 	<jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-<style>
-body {
-  background-image: url('images/update.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-		background-size: cover;
-}
-.capitalize{
-	color: black;
-}
-.formcontent{
-	margin: 0 auto; 
-	width:800px;
-	text-align: left;
-	background-color:#f0f5f5;
-	opacity:0.8;
-	padding: 20px 12px 10px 20px;
-}
-form{
-		
-		width: 700px;
-		border: 15px black;
-		margin: 20px;
-		font: 16px;
-		padding: 20px 12px 10px 20px;
-		outline-style: double;
-		outline-color: black;
-		float:center;
-		
-	}
-.idper{
-box-sizing: border-box;
-  border: 2px black;
-  border-radius: 4px;
-  background-color:#75a3a3;
-  color: white;
-}
-body {
-  background-image: url('../img/service6.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  min-height:100vh;
-  position:relative;
-		
-}	
-</style>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 </head>
-<body>
+<body class="ubody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 <!-- get the details passed from parameter from the url of the requesthandlingAdminHome.jsp page -->
 		<%
@@ -72,7 +26,7 @@ body {
 		
 		<div class="formcontent">
 		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
-			<form action="../update" method="post">
+			<form action="../update" method="post" class="form">
 				Feedback ID: 
 				<input type="text" name="Feedback_ID" style="width:20%" value="<%= Feedback_ID %>" readonly><br><br>
 				Customer ID:  <!-- paymentid is unique auto-incremented -->

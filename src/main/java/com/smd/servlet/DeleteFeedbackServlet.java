@@ -38,7 +38,7 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						//redirecting from the servlet to
-						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/deleteFeedback.jsp");
+						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
 						dis1.forward(request, response);
 					}
 					//if the data wasn't passed to the database successfully 
