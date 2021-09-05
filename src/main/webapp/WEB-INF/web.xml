@@ -53,5 +53,17 @@
 			<servlet-name>DeleteFeedback</servlet-name>
 			<url-pattern>/delete</url-pattern> <!-- action to the delete form -->
 		</servlet-mapping>
+		
+		<!-- reports of feedback -->
+		 <servlet>
+			<servlet-name>ReportFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.GenerateReportServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>ReportFeedback</servlet-name>
+			<url-pattern>/reports</url-pattern> <!-- action to the delete form -->
+		</servlet-mapping>
+     
      
 </web-app>
