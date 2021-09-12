@@ -1,29 +1,28 @@
 package com.smd.util;
-//helper class
+
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnection {
-	//declaring variables and initializing them 
-			private static String url="jdbc:mysql://localhost:3306/smd";
-			private static String user="root";
-			private static String password="madda&M1234";
-			
-			private static Connection con;//variable that returns the connection
-			
-			//method to create the database connection
-			public static Connection getConnection() {
-				try {
-					//load the jdbc driver
-					Class.forName("com.mysql.jdbc.Driver");
-					
-					//open a connection
-					con= DriverManager.getConnection(url, user, password);
-					
-				}catch(Exception e) {
-					e.printStackTrace();
-					System.out.println("Database connection failed");
-				}
-				return con;
-			}
+	private Connection con;
+
+	// This works according to singleton pattern
+	public DBConnection() {
+
+	}
+
+	public Connection getConnection() throws ClassNotFoundException, SQLException {
+		/*
+		 * This create new connection objects
+		 */
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/smd", "root", "toor");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return con;
+	}
 }

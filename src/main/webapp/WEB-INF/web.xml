@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
   <display-name>smd-distributors-automated-system</display-name>
   <!-- <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -64,5 +68,18 @@
 			<servlet-name>SearchFeedback</servlet-name>
 			<url-pattern>/searchfeedback</url-pattern> <!-- action to the seach -->
 		</servlet-mapping>
-     
+		
+		<!-- reports for feedback -->
+		 <servlet>
+			<servlet-name>FeedbackReport</servlet-name>
+			<servlet-class>com.smd.servlet.FeedbackReportServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>FeedbackReport</servlet-name>
+			<url-pattern>/feedbackreport</url-pattern> <!-- action to the seach -->
+		</servlet-mapping>
+
+	
 </web-app>
+
