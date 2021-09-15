@@ -18,7 +18,6 @@ public class DeleteFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	
@@ -43,7 +42,7 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("</script>"); 
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 						
 						//RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
@@ -62,7 +61,7 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("</script>"); 
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 					
 						//RequestDispatcher dis2= request.getRequestDispatcher("/RequestManage/requestHome.jsp");

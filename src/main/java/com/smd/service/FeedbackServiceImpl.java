@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import com.mysql.jdbc.PreparedStatement;
 import com.smd.model.Feedback;
 import com.smd.util.DBConnection;
 
@@ -21,8 +20,8 @@ public class FeedbackServiceImpl implements IFeedback {
 		DBConnection con = new DBConnection();
 		
 		public FeedbackServiceImpl() {
-			//con=DBConnection.getConnection();
 		}
+	
 		
 	@Override
 	//1.method to get all the feedback details saved in the database
@@ -56,15 +55,15 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//2. to get the passed feedback details inserted by the customer
-	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
-			String Status) {
+	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating, String Status) {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
 			//executing a query
 			state=con.getConnection().createStatement();
+			
 			String sql="Insert into feedback "
-					+ "values(0,3,NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
+					+ "values(0,'"+Cus_ID+"',NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
 			
 			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 				
@@ -175,12 +174,10 @@ public class FeedbackServiceImpl implements IFeedback {
 				int Feedback_ID=rs.getInt(1);
 				int Cus_ID= rs.getInt(2);
 				String Date= rs.getString(3);
-				String Type=rs.getString(4);
 				String Message=rs.getString(5);
-				int Rating=rs.getInt(6);
 				String Status=rs.getString(7);
 				
-				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Type, Message, Rating, Status);
+				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Message, Status);
 				feed.add(f1);
 			}
 			

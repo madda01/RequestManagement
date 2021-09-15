@@ -1,17 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+              <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Update Feedback</title>
-	<jsp:include page="../WEB-INF/views/common/head.jsp">
+	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 </head>
 <body class="ubody">
-	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 <!-- get the details passed from parameter from the url of the requesthandlingAdminHome.jsp page -->
 		<%
 			String Feedback_ID = request.getParameter("Feedback_ID");
@@ -27,7 +32,7 @@
 		
 		<div class="formcontent">
 		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
-			<form action="../updatefeedback" method="post" class="form">
+			<form action="${pageContext.request.contextPath}/updatefeedback" method="post" class="form">
 			
 			<div class="form-group row">
     			<label for="feedbackid" class="col-sm-5 col-form-label">Feedback ID: </label>
@@ -91,11 +96,19 @@
   					</select><br><br>
 				<%-- Status: 
 				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br> --%>
-				<input type="submit" name="submit" value="Update The Data"> 
+				<input type="submit" name="submit" id="form_button" value="Update The Data"> 
 				
 			</form>
 		</div>
 		<br><br><br>
-		<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+		<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
