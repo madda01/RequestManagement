@@ -1,4 +1,4 @@
 # RequestManagement
-Request Management Function. Creating a JSP/Servlet web application for ITP. 
+Request Management Function. Creating a JSP/Servlet web application with MySQL for ITP. 
 
-Insert | Update | Delete | Search | Confirmation Emails
+Insert | Update | Delete | Search | Confirmation Emails 
